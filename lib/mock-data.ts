@@ -137,9 +137,184 @@ export const narratorVoices = [
   { id: 'sultry-female', name: 'Sultry Female', gender: 'Female' },
 ]
 
-export const mockUser = {
+export interface Badge {
+  id: string
+  name: string
+  description: string
+  emoji: string
+  unlockedDate: string
+}
+
+export interface CompletedBook {
+  storyId: string
+  completedDate: string
+  rating: number
+  totalTimeSpent: number
+  listeningTime: number
+}
+
+export interface UserProfile {
+  id: string
+  name: string
+  email: string
+  avatar: string
+  rewardPoints: number
+  currentStreak: number
+  longestStreak: number
+  totalListeningHours: number
+  isPremium: boolean
+  badges: Badge[]
+  completedBooks: CompletedBook[]
+  joinedDate: string
+}
+
+export const mockBadges: Badge[] = [
+  {
+    id: 'first-book',
+    name: 'First Book Completed',
+    description: 'Completed your first audiobook',
+    emoji: '📚',
+    unlockedDate: '2024-01-15',
+  },
+  {
+    id: 'week-streak',
+    name: '7-Day Reading Streak',
+    description: 'Maintained a 7-day listening streak',
+    emoji: '🔥',
+    unlockedDate: '2024-02-01',
+  },
+  {
+    id: 'audiobook-fan',
+    name: 'Audiobook Enthusiast',
+    description: 'Listened to 50+ hours of audiobooks',
+    emoji: '🎧',
+    unlockedDate: '2024-02-05',
+  },
+  {
+    id: 'genre-explorer',
+    name: 'Genre Explorer',
+    description: 'Completed books in 5 different genres',
+    emoji: '🌍',
+    unlockedDate: '2024-02-08',
+  },
+  {
+    id: 'night-reader',
+    name: 'Night Owl Reader',
+    description: 'Logged most listening time between 9 PM - 6 AM',
+    emoji: '🌙',
+    unlockedDate: '2024-02-10',
+  },
+]
+
+export const mockCompletedBooks: CompletedBook[] = [
+  {
+    storyId: '1',
+    completedDate: '2024-01-15',
+    rating: 4.5,
+    totalTimeSpent: 120,
+    listeningTime: 15,
+  },
+  {
+    storyId: '3',
+    completedDate: '2024-02-01',
+    rating: 5,
+    totalTimeSpent: 180,
+    listeningTime: 15,
+  },
+  {
+    storyId: '6',
+    completedDate: '2024-02-08',
+    rating: 4,
+    totalTimeSpent: 90,
+    listeningTime: 15,
+  },
+]
+
+export interface Quote {
+  id: string
+  text: string
+  author: string
+  category: 'motivational' | 'relatable' | 'philosophical' | 'romance' | 'thriller' | 'fantasy'
+  genre?: string
+}
+
+export const mockQuotes: Quote[] = [
+  {
+    id: 'q1',
+    text: 'The only way to do great work is to love what you do.',
+    author: 'Steve Jobs',
+    category: 'motivational',
+  },
+  {
+    id: 'q2',
+    text: 'It is during our darkest moments that we must focus to see the light.',
+    author: 'Aristotle',
+    category: 'philosophical',
+  },
+  {
+    id: 'q3',
+    text: 'Every mystery has an ending, but the truth often starts where secrets die.',
+    author: 'Unknown',
+    category: 'thriller',
+    genre: 'Mystery',
+  },
+  {
+    id: 'q4',
+    text: 'In a world of chaos, love remains the strongest force.',
+    author: 'Sarah',
+    category: 'romance',
+    genre: 'Romance',
+  },
+  {
+    id: 'q5',
+    text: 'We are stronger together than we could ever be alone.',
+    author: 'J.K. Rowling',
+    category: 'relatable',
+  },
+  {
+    id: 'q6',
+    text: 'Magic exists in every moment if you know where to look.',
+    author: 'J.R.R. Tolkien',
+    category: 'fantasy',
+    genre: 'Fantasy',
+  },
+  {
+    id: 'q7',
+    text: 'The future belongs to those who believe in the beauty of their dreams.',
+    author: 'Eleanor Roosevelt',
+    category: 'motivational',
+  },
+  {
+    id: 'q8',
+    text: 'Sometimes the smallest things take up the most room in our hearts.',
+    author: 'A.A. Milne',
+    category: 'relatable',
+  },
+  {
+    id: 'q9',
+    text: 'In the darkest times, hope is something you give yourself.',
+    author: 'Dumbledore',
+    category: 'philosophical',
+  },
+  {
+    id: 'q10',
+    text: 'Life is not about finding yourself. Life is about creating yourself.',
+    author: 'George Bernard Shaw',
+    category: 'motivational',
+  },
+]
+
+export const mockUser: UserProfile = {
   id: 'user-1',
   name: 'Alex Chen',
   email: 'alex@echotales.com',
   avatar: '',
+  rewardPoints: 1250,
+  currentStreak: 7,
+  longestStreak: 14,
+  totalListeningHours: 52.5,
+  isPremium: true,
+  badges: mockBadges,
+  completedBooks: mockCompletedBooks,
+  joinedDate: '2023-11-20',
 }

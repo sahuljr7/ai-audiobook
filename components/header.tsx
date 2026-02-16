@@ -44,14 +44,29 @@ export function Header() {
           </motion.h1>
         </Link>
 
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="/library" className="text-foreground/70 hover:text-foreground smooth-transition text-sm">
+            Library
+          </Link>
+          <Link href="/history" className="text-foreground/70 hover:text-foreground smooth-transition text-sm">
+            History
+          </Link>
+          <Link href="/quotes" className="text-foreground/70 hover:text-foreground smooth-transition text-sm">
+            Inspiration
+          </Link>
+        </div>
+
         <motion.div
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Avatar className="h-10 w-10 border border-white/20">
-            <AvatarImage src={mockUser.avatar || "/placeholder.svg"} alt={mockUser.name} />
-            <AvatarFallback>AC</AvatarFallback>
-          </Avatar>
+          <Link href="/profile">
+            <Avatar className="h-10 w-10 border border-white/20 cursor-pointer hover:border-violet-500/50 smooth-transition">
+              <AvatarImage src={mockUser.avatar || "/placeholder.svg"} alt={mockUser.name} />
+              <AvatarFallback>AC</AvatarFallback>
+            </Avatar>
+          </Link>
         </motion.div>
       </div>
     </motion.header>
