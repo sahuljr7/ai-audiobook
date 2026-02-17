@@ -103,13 +103,13 @@ export default function HistoryPage() {
               placeholder="Search by title..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-white/5 border-white/10 text-foreground placeholder:text-foreground/50"
+              className="bg-background border-input text-foreground placeholder:text-muted-foreground"
             />
             <Select value={selectedGenre} onValueChange={setSelectedGenre}>
-              <SelectTrigger className="bg-white/5 border-white/10 text-foreground">
+              <SelectTrigger className="bg-background border-input text-foreground">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-[#1a0f2e] border-white/10">
+              <SelectContent>
                 {allGenres.map((genre) => (
                   <SelectItem key={genre} value={genre}>
                     {genre === 'all' ? 'All Genres' : genre}
@@ -118,10 +118,10 @@ export default function HistoryPage() {
               </SelectContent>
             </Select>
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="bg-white/5 border-white/10 text-foreground">
+              <SelectTrigger className="bg-background border-input text-foreground">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-[#1a0f2e] border-white/10">
+              <SelectContent>
                 <SelectItem value="recent">Recently Completed</SelectItem>
                 <SelectItem value="oldest">Oldest First</SelectItem>
                 <SelectItem value="rating">Highest Rated</SelectItem>
@@ -133,7 +133,7 @@ export default function HistoryPage() {
         {/* Tabs */}
         <motion.div variants={itemVariants}>
           <Tabs defaultValue="completed" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-white/5 border border-white/10 rounded-lg p-1">
+            <TabsList className="grid w-full grid-cols-2 bg-muted border border-border rounded-lg p-1">
               <TabsTrigger value="completed">
                 Completed ({filteredCompleted.length})
               </TabsTrigger>

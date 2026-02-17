@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function MarketingNav() {
   return (
     <motion.nav
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/10"
+      className="fixed top-0 w-full z-50 backdrop-blur-md border-b border-border"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between">
@@ -43,17 +44,20 @@ export function MarketingNav() {
             </Link>
           </div>
 
-          {/* CTA */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link href="/login">
-              <button className="bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 text-white font-semibold px-6 py-2 rounded-lg smooth-transition">
-                Login
-              </button>
-            </Link>
-          </motion.div>
+          {/* Actions */}
+          <div className="flex items-center gap-4">
+            <ThemeToggle />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link href="/login">
+                <button className="bg-gradient-to-r from-violet-500 to-cyan-500 hover:from-violet-600 hover:to-cyan-600 text-white font-semibold px-6 py-2 rounded-lg smooth-transition">
+                  Login
+                </button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.nav>

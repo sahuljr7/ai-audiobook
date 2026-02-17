@@ -6,6 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { mockUser } from '@/lib/mock-data'
 import { useScroll, useTransform } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function Header() {
   const ref = useRef<HTMLDivElement>(null)
@@ -57,17 +58,20 @@ export function Header() {
           </Link>
         </div>
 
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Link href="/profile">
-            <Avatar className="h-10 w-10 border border-white/20 cursor-pointer hover:border-violet-500/50 smooth-transition">
-              <AvatarImage src={mockUser.avatar || "/placeholder.svg"} alt={mockUser.name} />
-              <AvatarFallback>AC</AvatarFallback>
-            </Avatar>
-          </Link>
-        </motion.div>
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Link href="/profile">
+              <Avatar className="h-10 w-10 border border-border cursor-pointer hover:border-primary/50 smooth-transition">
+                <AvatarImage src={mockUser.avatar || "/placeholder.svg"} alt={mockUser.name} />
+                <AvatarFallback>AC</AvatarFallback>
+              </Avatar>
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </motion.header>
   )
